@@ -29,7 +29,17 @@ namespace Diploma
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<IdentityUser>(
+                    options =>
+                    {
+                        options.SignIn.RequireConfirmedAccount = false;
+                        options.Password.RequireDigit = false;
+                        options.Password.RequireLowercase = false;
+                        options.Password.RequireNonAlphanumeric = false;
+                        options.Password.RequireUppercase = false;
+                        options.Password.RequiredLength = 3;
+                        options.User.RequireUniqueEmail = true;
+                    })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
 

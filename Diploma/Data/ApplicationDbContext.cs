@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Diploma.Extensions;
 using Diploma.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -19,6 +20,7 @@ namespace Diploma.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,6 +35,8 @@ namespace Diploma.Data
                 .HasOne(p => p.Employee)
                 .WithMany(b => b.Contracts)
                 .HasForeignKey(p => p.EmployeeId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<IdentityRole<int>>().HasData(new IdentityRole<int> {Id = 1, Name = "Admin", NormalizedName = "Admin".ToUpper() });
+
         }
     }
 }

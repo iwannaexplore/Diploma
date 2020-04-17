@@ -40,7 +40,7 @@ namespace Diploma
                         options.Password.RequireUppercase = false;
                         options.Password.RequiredLength = 3;
                         options.User.RequireUniqueEmail = true;
-                    })
+                    }).AddRoles<IdentityRole<int>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
 

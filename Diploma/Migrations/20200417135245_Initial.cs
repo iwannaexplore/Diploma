@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Diploma.Migrations
 {
-    public partial class MainModelsCreated : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,10 @@ namespace Diploma.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true)
+                    Surname = table.Column<string>(nullable: true),
+                    Salary = table.Column<decimal>(type: "money", nullable: false),
+                    StartDateOfWork = table.Column<DateTime>(nullable: false),
+                    EndDateOfWork = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

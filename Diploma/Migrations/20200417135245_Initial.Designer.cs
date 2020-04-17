@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diploma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200415182529_MainModelsCreated")]
-    partial class MainModelsCreated
+    [Migration("20200417135245_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,6 +107,9 @@ namespace Diploma.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime>("EndDateOfWork")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -133,8 +136,14 @@ namespace Diploma.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("money");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDateOfWork")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");

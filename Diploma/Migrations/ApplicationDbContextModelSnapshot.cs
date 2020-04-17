@@ -105,6 +105,9 @@ namespace Diploma.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime>("EndDateOfWork")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -131,8 +134,14 @@ namespace Diploma.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("money");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDateOfWork")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");

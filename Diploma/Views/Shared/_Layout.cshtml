@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.css" rel="stylesheet">
-
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 
 </head>
@@ -64,21 +64,20 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>CRUD Operations</span>
                 </a>
                 <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="#">Page 1</a>
-                        <a class="collapse-item" href="#">Page 2</a>
-                        <a class="collapse-item" href="#">Page 3</a>
+                        <h6 class="collapse-header">Buyer</h6>
+                        <a class="collapse-item" href="@Url.Action("AddBuyer", "Crud")">Add Buyer</a>
+                        <a class="collapse-item" href="@Url.Action("ShowBuyers", "Crud")">Show Buyers</a>
                         <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="#">Page 4</a>
-                        <a class="collapse-item active" href="#">Page 5</a>
+                        <h6 class="collapse-header">Contract:</h6>
+                        <a class="collapse-item" href="#">Add Contract</a>
+                        <a class="collapse-item" href="#">Show Contracts</a>
                     </div>
                 </div>
             </li>
@@ -148,7 +147,7 @@
                         </li>
 
 
-                       
+
 
                         <!-- Nav Item - User Information -->
 
@@ -242,15 +241,21 @@
     <!-- Custom scripts for all pages-->
     <script src="/js/sb-admin-2.js"></script>
 
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/js/demo/datatables-demo.js"></script>
+
 
 
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="/js/demo/chart-area-demo.js"></script>
+    <script src="/js/demo/chart-pie-demo.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 

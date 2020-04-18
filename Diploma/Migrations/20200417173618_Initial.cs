@@ -231,8 +231,7 @@ namespace Diploma.Migrations
                         name: "FK_Contracts_Buyers_BuyerId",
                         column: x => x.BuyerId,
                         principalTable: "Buyers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Contracts_AspNetUsers_EmployeeId",
                         column: x => x.EmployeeId,
@@ -250,6 +249,11 @@ namespace Diploma.Migrations
                         principalTable: "Sellers",
                         principalColumn: "Id");
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { 1, "5a7990a3-69ce-4226-badd-48719fc2db74", "Admin", "ADMIN" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

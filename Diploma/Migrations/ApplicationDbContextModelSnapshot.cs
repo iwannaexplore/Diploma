@@ -234,6 +234,15 @@ namespace Diploma.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConcurrencyStamp = "5a7990a3-69ce-4226-badd-48719fc2db74",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -345,7 +354,8 @@ namespace Diploma.Migrations
                 {
                     b.HasOne("Diploma.Models.Buyer", "Buyer")
                         .WithMany("Contracts")
-                        .HasForeignKey("BuyerId");
+                        .HasForeignKey("BuyerId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Diploma.Models.Employee", "Employee")
                         .WithMany("Contracts")

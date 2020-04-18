@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Diploma.Models.Buyer>
+
+@{
+    ViewData["Title"] = "ShowBuyers";
+}
+
+<h1 class="h3 mb-2 text-gray-800">All Buyers</h1>
+<p class="mb-4">If you remove a buyer - his contract ID will be set to NULL</p>
+
+<div class="card shadow mb-4">
+    <div class="card-header d-flex justify-content-end py-3">
+        <a asp-action="AddBuyer" class="btn btn-success btn-circle btn-sm">
+            <i class="fas fa-plus"></i>
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Surname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PassportId)
+                        </th>
+                        <th><span>Actions</span></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Surname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PassportId)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Surname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PassportId)
+                            </td>
+                            <td>
+                                <a asp-action="EditBuyer" asp-route-id="@item.Id" class="btn btn-info btn-circle">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a asp-action="DeleteBuyer" asp-route-id="@item.Id" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

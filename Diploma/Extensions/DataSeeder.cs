@@ -123,6 +123,15 @@ namespace Diploma.Extensions
                     });
 
                 _context.SaveChanges();
+                _context.ContractTypes.AddRange(
+                    new ContractType
+                    {
+                        Type = "Rental"
+                    },
+                    new ContractType
+                    {
+                        Type = "Purchase"
+                    });
                 _context.Contracts.AddRange(
                     new Contract
                     {
@@ -133,7 +142,7 @@ namespace Diploma.Extensions
                         HouseId = 1,
                         EndDate = DateTime.Today.AddDays(15),
                         StartDate = DateTime.Today.AddDays(-15),
-                        Type = "rental",
+                        ContractTypeId = 1,
                         Price = 100M
                     },
                     new Contract
@@ -145,7 +154,7 @@ namespace Diploma.Extensions
                         HouseId = 1,
                         EndDate = DateTime.Today.AddDays(-30),
                         StartDate = DateTime.Today.AddDays(-60),
-                        Type = "rental",
+                        ContractTypeId = 1,
                         Price = 103M
                     },
                     new Contract
@@ -157,7 +166,7 @@ namespace Diploma.Extensions
                         HouseId = 2,
                         EndDate = DateTime.Today.AddDays(15),
                         StartDate = DateTime.Today.AddDays(-15),
-                        Type = "rental",
+                        ContractTypeId = 1,
                         Price = 150M
                     },
                     new Contract
@@ -169,7 +178,7 @@ namespace Diploma.Extensions
                         HouseId = 3,
                         EndDate = DateTime.Today.AddDays(55),
                         StartDate = DateTime.Today.AddDays(-55),
-                        Type = "rental",
+                        ContractTypeId = 1,
                         Price = 200M
                     },
                     new Contract
@@ -181,7 +190,7 @@ namespace Diploma.Extensions
                         HouseId = 4,
                         EndDate = DateTime.Today.AddDays(95),
                         StartDate = DateTime.Today.AddDays(-95),
-                        Type = "rental",
+                        ContractTypeId = 1,
                         Price = 400M
                     },
                     new Contract
@@ -193,7 +202,7 @@ namespace Diploma.Extensions
                         HouseId = 5,
                         EndDate = null,
                         StartDate = DateTime.Today.AddDays(-105),
-                        Type = "purchase",
+                        ContractTypeId = 2,
                         Price = 30000M
                     },
                     new Contract
@@ -205,7 +214,7 @@ namespace Diploma.Extensions
                         HouseId = 6,
                         EndDate = DateTime.Today.AddDays(15),
                         StartDate = DateTime.Today.AddDays(-15),
-                        Type = "rental",
+                        ContractTypeId = 1,
                         Price = 300M
                     },
                     new Contract
@@ -217,7 +226,7 @@ namespace Diploma.Extensions
                         HouseId = 7,
                         EndDate = DateTime.Today.AddDays(15),
                         StartDate = DateTime.Today.AddDays(-15),
-                        Type = "purchase"
+                        ContractTypeId = 2,
                     });
                 _context.SaveChanges();
             }

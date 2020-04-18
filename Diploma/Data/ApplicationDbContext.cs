@@ -16,6 +16,7 @@ namespace Diploma.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<House> Houses { get; set; }
         public DbSet<Seller> Sellers { get; set; }
+        public DbSet<ContractType> ContractTypes { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

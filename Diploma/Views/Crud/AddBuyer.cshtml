@@ -4,7 +4,7 @@
     ViewData["Title"] = "AddBuyer";
 }
 
-<h1>AddBuyer</h1>
+<h1>Add Buyer</h1>
 
 <hr />
 <div class="row">
@@ -34,4 +34,6 @@
     </div>
 </div>
 
-
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

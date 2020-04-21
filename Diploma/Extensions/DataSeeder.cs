@@ -89,13 +89,13 @@ namespace Diploma.Extensions
                     {
 
                         Address = "Minsk, Kurganova 4, 5",
-                        SellerId = 1,
+                        SellerId = 2,
                     },
                     new House
                     {
 
                         Address = "Minsk, Putina 25, 12",
-                        SellerId = 1,
+                        SellerId = 3,
                     },
                     new House
                     {
@@ -107,13 +107,13 @@ namespace Diploma.Extensions
                     {
 
                         Address = "Minsk, Drukova 332, 1",
-                        SellerId = 1,
+                        SellerId = 2,
                     },
                     new House
                     {
 
                         Address = "Minsk, Modnova 2, 12",
-                        SellerId = 1,
+                        SellerId = 3,
                     },
                     new House
                     {
@@ -174,7 +174,7 @@ namespace Diploma.Extensions
 
                         BuyerId = 3,
                         EmployeeId = 1,
-                        SellerId = 2,
+                        SellerId = 3,
                         HouseId = 3,
                         EndDate = DateTime.Today.AddDays(55),
                         StartDate = DateTime.Today.AddDays(-55),
@@ -186,7 +186,7 @@ namespace Diploma.Extensions
 
                         BuyerId = 1,
                         EmployeeId = 1,
-                        SellerId = 2,
+                        SellerId = 1,
                         HouseId = 4,
                         EndDate = DateTime.Today.AddDays(95),
                         StartDate = DateTime.Today.AddDays(-95),
@@ -210,7 +210,7 @@ namespace Diploma.Extensions
 
                         BuyerId = 3,
                         EmployeeId = 1,
-                        SellerId = 1,
+                        SellerId = 3,
                         HouseId = 6,
                         EndDate = DateTime.Today.AddDays(15),
                         StartDate = DateTime.Today.AddDays(-15),

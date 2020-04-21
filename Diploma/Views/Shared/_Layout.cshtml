@@ -76,8 +76,16 @@
                         <a class="collapse-item" href="@Url.Action("ShowBuyers", "Crud")">Show Buyers</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Contract:</h6>
-                        <a class="collapse-item" href="#">Add Contract</a>
-                        <a class="collapse-item" href="#">Show Contracts</a>
+                        <a class="collapse-item" href="@Url.Action("AddContract", "Crud")">Add Contract</a>
+                        <a class="collapse-item" href="@Url.Action("ShowContracts", "Crud")">Show Contracts</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">House:</h6>
+                        <a class="collapse-item" href="@Url.Action("AddHouse", "Crud")">Add House</a>
+                        <a class="collapse-item" href="@Url.Action("ShowHouses", "Crud")">Show Houses</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Seller:</h6>
+                        <a class="collapse-item" href="@Url.Action("AddSeller", "Crud")">Add Seller</a>
+                        <a class="collapse-item" href="@Url.Action("ShowSellers", "Crud")">Show Sellers</a>
                     </div>
                 </div>
             </li>
@@ -196,7 +204,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2019</span>
+                        <span>Copyright &copy; Dima Senko Diploma 2020</span>
                     </div>
                 </div>
             </footer>
@@ -248,15 +256,11 @@
     <script src="/js/demo/datatables-demo.js"></script>
 
 
-
-
     <!-- Page level plugins -->
     <script src="/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="/js/demo/chart-area-demo.js"></script>
-    <script src="/js/demo/chart-pie-demo.js"></script>
-    @RenderSection("scripts", required: false)
+@RenderSection("scripts", required: false)
 </body>
 
 </html>

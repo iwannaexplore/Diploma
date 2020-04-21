@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Diploma.Models.Seller>
+
+@{
+    ViewData["Title"] = "ShowSeller";
+}
+
+<h1 class="h3 mb-2 text-gray-800">All Sellers</h1>
+<p class="mb-4">If you remove a Seller - its houses and contracts will be removed</p>
+
+<div class="card shadow mb-4">
+    <div class="card-header d-flex justify-content-end py-3">
+        <a asp-action="AddSeller" class="btn btn-success btn-circle btn-sm">
+            <i class="fas fa-plus"></i>
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Surname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PassportNum)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Surname)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PassportNum)
+                            </td>
+                            <td>
+                                <a asp-action="EditSeller" asp-route-id="@item.Id" class="btn btn-info btn-circle">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a asp-action="DeleteSeller" asp-route-id="@item.Id" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

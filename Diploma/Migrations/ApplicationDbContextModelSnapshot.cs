@@ -27,13 +27,19 @@ namespace Diploma.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("PassportId")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
 
                     b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -132,7 +138,9 @@ namespace Diploma.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(256)")
@@ -161,7 +169,9 @@ namespace Diploma.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -191,7 +201,9 @@ namespace Diploma.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<int>("SellerId")
                         .HasColumnType("int");
@@ -211,13 +223,19 @@ namespace Diploma.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("PassportNum")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)")
+                        .HasMaxLength(15);
 
                     b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -256,7 +274,7 @@ namespace Diploma.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "b5fdf5fb-6477-4173-9b3a-a0f586e0e234",
+                            ConcurrencyStamp = "502db639-95c9-4018-a7b5-1c662bc05438",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -373,7 +391,7 @@ namespace Diploma.Migrations
                         .WithMany("Contracts")
                         .HasForeignKey("BuyerId");
 
-                    b.HasOne("Diploma.Models.ContractType", null)
+                    b.HasOne("Diploma.Models.ContractType", "ContractType")
                         .WithMany("Contracts")
                         .HasForeignKey("ContractTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -400,7 +418,7 @@ namespace Diploma.Migrations
 
             modelBuilder.Entity("Diploma.Models.House", b =>
                 {
-                    b.HasOne("Diploma.Models.Seller", null)
+                    b.HasOne("Diploma.Models.Seller", "Seller")
                         .WithMany("Houses")
                         .HasForeignKey("SellerId")
                         .OnDelete(DeleteBehavior.Cascade)

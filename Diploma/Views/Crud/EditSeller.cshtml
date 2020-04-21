@@ -1,0 +1,40 @@
+﻿@model Diploma.Models.Seller
+
+@{
+    ViewData["Title"] = "EditSeller";
+}
+
+<h1>Edit Seller</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditSeller">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassportNum" class="control-label"></label>
+                <input asp-for="PassportNum" class="form-control" />
+                <span asp-validation-for="PassportNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-action="ShowSellers" class="btn btn-danger btn-circle"><i class="fas fa-arrow-left"></i></a>
+                <button type="submit" class="btn btn-success btn-circle"><i class="fas fa-check"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

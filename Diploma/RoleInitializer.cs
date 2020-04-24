@@ -15,7 +15,7 @@ namespace Diploma
             string password = "_Aa123456";
             if (await userManager.FindByEmailAsync(adminEmail) == null)
             {
-                Employee admin = new Employee { Email = adminEmail, UserName = adminEmail, EmailConfirmed = true, Name = "Julie", Surname = "Smirnova", StartDateOfWork = DateTime.Now.AddMonths(-2), EndDateOfWork = DateTime.Now.AddDays(5), Salary = 10M};
+                Employee admin = new Employee { Email = adminEmail, UserName = adminEmail, EmailConfirmed = true, Name = "Julie", Surname = "Smirnova", StartDateOfWork = new DateTime(2018, 1, 1), EndDateOfWork = new DateTime(2024, 12, 12), Salary = 500M};
                 IdentityResult result = await userManager.CreateAsync(admin, password);
                 if (result.Succeeded)
                 {
@@ -27,7 +27,7 @@ namespace Diploma
             string userPassword = "_Hum45678";
             if (await userManager.FindByEmailAsync(userEmail) == null)
             {
-                Employee user = new Employee { Email = userEmail, UserName = userEmail, EmailConfirmed = true, Name = "Dima", Surname = "Senko", StartDateOfWork = DateTime.Now.AddMonths(-25), EndDateOfWork = DateTime.Now.AddDays(25), Salary = 10M };
+                Employee user = new Employee { Email = userEmail, UserName = userEmail, EmailConfirmed = true, Name = "Dima", Surname = "Senko", StartDateOfWork = new DateTime(2020, 1, 1), EndDateOfWork = new DateTime(2020, 2, 1), Salary = 800M };
                 IdentityResult result = await userManager.CreateAsync(user, userPassword);
                 if (result.Succeeded)
                 {

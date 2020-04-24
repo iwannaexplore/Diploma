@@ -247,6 +247,11 @@ namespace Diploma.Controllers
             return RedirectToAction("ShowSellers");
         }
 
+        public IActionResult ShowEmployees()
+        {
+            return View(_context.Employees.ToList());
+        }
+
         public JsonResult GetHousesBySellerId(int id)
         {
             List<House> list = _context.Houses.Where(h => h.SellerId == id).ToList();

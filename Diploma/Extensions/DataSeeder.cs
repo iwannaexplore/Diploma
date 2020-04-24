@@ -143,7 +143,7 @@ namespace Diploma.Extensions
                         EndDate = DateTime.Today.AddDays(15),
                         StartDate = DateTime.Today.AddDays(-15),
                         ContractTypeId = 1,
-                        Price = 100M
+                        Price = 300M
                     },
                     new Contract
                     {
@@ -155,7 +155,7 @@ namespace Diploma.Extensions
                         EndDate = DateTime.Today.AddDays(-30),
                         StartDate = DateTime.Today.AddDays(-60),
                         ContractTypeId = 1,
-                        Price = 103M
+                        Price = 500M
                     },
                     new Contract
                     {
@@ -167,7 +167,7 @@ namespace Diploma.Extensions
                         EndDate = DateTime.Today.AddDays(15),
                         StartDate = DateTime.Today.AddDays(-15),
                         ContractTypeId = 1,
-                        Price = 150M
+                        Price = 200M
                     },
                     new Contract
                     {
@@ -179,7 +179,7 @@ namespace Diploma.Extensions
                         EndDate = DateTime.Today.AddDays(55),
                         StartDate = DateTime.Today.AddDays(-55),
                         ContractTypeId = 1,
-                        Price = 200M
+                        Price = 1500M
                     },
                     new Contract
                     {
@@ -191,7 +191,7 @@ namespace Diploma.Extensions
                         EndDate = DateTime.Today.AddDays(95),
                         StartDate = DateTime.Today.AddDays(-95),
                         ContractTypeId = 1,
-                        Price = 400M
+                        Price = 1200M
                     },
                     new Contract
                     {
@@ -227,6 +227,7 @@ namespace Diploma.Extensions
                         EndDate = DateTime.Today.AddDays(15),
                         StartDate = DateTime.Today.AddDays(-15),
                         ContractTypeId = 2,
+                        Price = 700M
                     });
                 _context.SaveChanges();
             }

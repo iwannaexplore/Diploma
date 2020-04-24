@@ -4,14 +4,16 @@ using Diploma.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Diploma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200424103221_AddedPromotionHistory")]
+    partial class AddedPromotionHistory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -234,7 +236,7 @@ namespace Diploma.Migrations
                     b.Property<int>("DegreeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("EmployeeId")
+                    b.Property<int?>("EmployeeId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("EndDate")
@@ -311,7 +313,7 @@ namespace Diploma.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "9c487d01-7573-405b-bd3f-ffb5d7fcd314",
+                            ConcurrencyStamp = "e7b1b60b-7c32-424d-a688-ecf06977519c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -472,9 +474,7 @@ namespace Diploma.Migrations
 
                     b.HasOne("Diploma.Models.Employee", "Employee")
                         .WithMany("PromotionHistories")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

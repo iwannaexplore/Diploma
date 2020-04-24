@@ -22,11 +22,10 @@ namespace Diploma
 
             using var scope = host.Services.CreateScope();
             var services = scope.ServiceProvider;
-
             var context = services.GetRequiredService<ApplicationDbContext>();
-            DataSeeder.Seed(context);
 
             InitializeAdminAndUser(host);
+            DataSeeder.Seed(context);
 
             host.Run();
         }

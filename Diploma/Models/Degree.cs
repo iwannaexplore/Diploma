@@ -4,19 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 
 namespace Diploma.Models
 {
-    public class Employee : IdentityUser<int>
+    public class Degree
     {
-        [Required]
-        [StringLength(100, MinimumLength = 5)]
+        public int Id { get; set; }
         public string Name { get; set; }
+
         [Required]
-        [StringLength(100, MinimumLength = 5)]
-        public string Surname { get; set; }
-        public List<Contract> Contracts { get; set; }
+        [Range(0, 999999.99)]
+        [Column(TypeName = "money")]
+        public decimal Salary { get; set; }
         public List<PromotionHistory> PromotionHistories { get; set; }
     }
 }

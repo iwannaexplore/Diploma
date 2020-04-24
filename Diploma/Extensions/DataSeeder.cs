@@ -16,6 +16,15 @@ namespace Diploma.Extensions
         {
             if (!_context.Buyers.Any())
             {
+                _context.Degrees.AddRange(
+                    new Degree { Name = "First Category", Salary = 400M},
+                    new Degree { Name = "Second Category", Salary = 500M},
+                    new Degree { Name = "Third Category", Salary = 600M},
+                    new Degree { Name = "Fourth Category", Salary = 700M},
+                    new Degree { Name = "Fifth Category", Salary = 800M},
+                    new Degree { Name = "Sixth Category", Salary = 900M}
+                    );
+                _context.SaveChanges();
                 _context.Employees.AddRange(
                     new Employee
                     {
@@ -25,11 +34,14 @@ namespace Diploma.Extensions
                         UserName = "KOLYA2000",
                         EmailConfirmed = true,
                         Name = "Kolya",
-                        Surname = "Kaminski",
-                        StartDateOfWork = DateTime.Now.AddYears(-5),
-                        EndDateOfWork = DateTime.Now.AddYears(5),
-                        Salary = 20M
+                        Surname = "Kaminski"
                     });
+                _context.SaveChanges();
+                _context.PromotionHistories.AddRange(
+                    new PromotionHistory { DegreeId = 1, EmployeeId = 1, StartDate = DateTime.Now.AddYears(-2), EndDate = DateTime.Now.AddYears(-1)},
+                    new PromotionHistory { DegreeId = 2, EmployeeId = 1, StartDate = DateTime.Now.AddYears(-1), EndDate = DateTime.Now}, 
+                    new PromotionHistory { DegreeId = 3, EmployeeId = 2, StartDate = DateTime.Now.AddDays(-45), EndDate = null}
+                );
                 _context.SaveChanges();
                 _context.Buyers.AddRange(
                     new Buyer

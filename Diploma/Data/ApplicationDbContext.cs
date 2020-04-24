@@ -17,11 +17,13 @@ namespace Diploma.Data
         public DbSet<House> Houses { get; set; }
         public DbSet<Seller> Sellers { get; set; }
         public DbSet<ContractType> ContractTypes { get; set; }
+        public DbSet<PromotionHistory> PromotionHistories { get; set; }
+        public DbSet<Degree> Degrees { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -39,7 +39,7 @@ namespace Diploma.Extensions
                 _context.SaveChanges();
                 _context.PromotionHistories.AddRange(
                     new PromotionHistory { DegreeId = 1, EmployeeId = 1, StartDate = DateTime.Now.AddYears(-2), EndDate = DateTime.Now.AddYears(-1)},
-                    new PromotionHistory { DegreeId = 2, EmployeeId = 1, StartDate = DateTime.Now.AddYears(-1), EndDate = DateTime.Now}, 
+                    new PromotionHistory { DegreeId = 2, EmployeeId = 1, StartDate = DateTime.Now.AddYears(-1), EndDate = null}, 
                     new PromotionHistory { DegreeId = 3, EmployeeId = 2, StartDate = DateTime.Now.AddDays(-45), EndDate = null}
                 );
                 _context.SaveChanges();
@@ -47,14 +47,14 @@ namespace Diploma.Extensions
                     new Buyer
                     {
 
-                        Name = "Dima",
+                        Name = "Dmitriy",
                         PassportId = "KP3553656HGT",
                         Surname = "Senko"
                     },
                     new Buyer
                     {
 
-                        Name = "Vika",
+                        Name = "Vikasi",
                         PassportId = "ASDF454353445",
                         Surname = "Vichnevets"
                     },

@@ -15,7 +15,7 @@ namespace Diploma
             string password = "_Hum45678";
             if (await userManager.FindByEmailAsync(admin) == null)
             {
-                Employee employee = new Employee { Email = admin, UserName = admin, EmailConfirmed = true, Name = "Dima", Surname = "Senko" };
+                Employee employee = new Employee { Email = admin, UserName = admin, EmailConfirmed = true, Name = "Dmitriy", Surname = "Senkos" };
                 IdentityResult result = await userManager.CreateAsync(employee, password);
                 if (result.Succeeded)
                 {

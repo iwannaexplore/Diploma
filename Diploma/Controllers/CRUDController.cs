@@ -249,7 +249,58 @@ namespace Diploma.Controllers
 
         public IActionResult ShowEmployees()
         {
-            return View(_context.Employees.ToList());
+            return View(_context.Employees.Include(e => e.PromotionHistories).ThenInclude(ph => ph.Degree).ToList());
+        }
+
+        [HttpGet]
+        public IActionResult EditEmployee(int id)
+        {
+            int defaultValue = _context.PromotionHistories.FirstOrDefault(ph => ph.EmployeeId == id && ph.EndDate == null).DegreeId;
+            ViewBag.DegreeId = new SelectList(_context.Degrees.ToList(), "Id", "Name", defaultValue);
+            return View(_context.Employees.FirstOrDefault(e => e.Id == id));
+        }
+
+        [HttpPost]
+        public IActionResult EditEmployee(Employee employee, int degreeId)
+        {
+            var oldHistory = _context.PromotionHistories.FirstOrDefault(ph => ph.EmployeeId == employee.Id && ph.EndDate == null);
+            oldHistory.EndDate = DateTime.Now;
+            if (oldHistory.DegreeId == degreeId)
+            {
+                return RedirectToAction("ShowEmployees");
+            }
+            _context.PromotionHistories.Update(oldHistory);
+            _context.SaveChanges();
+            PromotionHistory newHistory = new PromotionHistory { DegreeId = degreeId, EmployeeId = employee.Id, StartDate = DateTime.Now, EndDate = null };
+            _context.PromotionHistories.Add(newHistory);
+            _context.SaveChanges();
+            var newEmployee = _context.Employees.FirstOrDefault(e => e.Id == employee.Id);
+            newEmployee.Name = employee.Name;
+            newEmployee.Surname = employee.Surname;
+            newEmployee.UserName = employee.Email;
+            newEmployee.NormalizedUserName = employee.Email.ToUpperInvariant();
+            newEmployee.Email = employee.Email;
+            newEmployee.NormalizedEmail = employee.Email.ToUpperInvariant();
+            _context.Employees.Update(newEmployee);
+            _context.SaveChanges();
+            return RedirectToAction("ShowEmployees");
+        }
+
+        public IActionResult DeleteEmployee(int id)
+        {
+            var oldHistory = _context.PromotionHistories.FirstOrDefault(ph => ph.EmployeeId == id && ph.EndDate == null);
+            oldHistory.EndDate = DateTime.Now;
+            _context.PromotionHistories.Update(oldHistory);
+            _context.SaveChanges();
+            return RedirectToAction("ShowEmployees");
+        }
+        public IActionResult ReturnEmployee(int id)
+        {
+            var oldHistory = _context.PromotionHistories.OrderBy(ph=>ph.EndDate).LastOrDefault(ph => ph.EmployeeId == id);
+            PromotionHistory newHistory = new PromotionHistory { DegreeId = oldHistory.DegreeId, EmployeeId = oldHistory.EmployeeId, StartDate = DateTime.Now, EndDate = null };
+            _context.PromotionHistories.Add(newHistory);
+            _context.SaveChanges();
+            return RedirectToAction("ShowEmployees");
         }
 
         public JsonResult GetHousesBySellerId(int id)

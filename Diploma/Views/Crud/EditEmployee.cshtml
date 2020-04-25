@@ -1,0 +1,47 @@
+﻿@model Diploma.Models.Employee
+
+@{
+    ViewData["Title"] = "AddEmployee";
+}
+
+<h1>Edit Employee</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditEmployee">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="degreeId" class="control-label"></label>
+                <select id="degreeId" name="degreeId" class="form-control" asp-items="ViewBag.DegreeId"></select>
+            </div>
+            <div class="form-group">
+                <a asp-action="ShowEmployees" class="btn btn-danger btn-circle"><i class="fas fa-arrow-left"></i></a>
+                <button type="submit" class="btn btn-success btn-circle"><i class="fas fa-check"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -5,17 +5,6 @@
     <UserSecretsId>aspnet-Diploma-08094ADB-2E1A-4F72-B9EF-F6FC26CCF422</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="wwwroot\bootstrap-datetimepicker-npm\**" />
-    <Content Remove="wwwroot\bootstrap-datetimepicker-npm\**" />
-    <EmbeddedResource Remove="wwwroot\bootstrap-datetimepicker-npm\**" />
-    <None Remove="wwwroot\bootstrap-datetimepicker-npm\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Migrations\20200418093017_AddedContractType.cs" />
-    <Compile Remove="Migrations\20200418093017_AddedContractType.Designer.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="IronPdf" Version="2020.3.2" />

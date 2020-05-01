@@ -23,17 +23,6 @@ namespace Diploma
                 }
             }
 
-            string user = "vika@gmail.com";
-            string userPassword = "_Hum45678";
-            if (await userManager.FindByEmailAsync(user) == null)
-            {
-                Employee employee = new Employee { Email = user, UserName = user, EmailConfirmed = true, Name = "Vika", Surname = "Viktos" };
-                IdentityResult result = await userManager.CreateAsync(employee, userPassword);
-                if (result.Succeeded)
-                {
-                    await userManager.AddToRoleAsync(employee, "User");
-                }
-            }
         }
     }
 }

@@ -305,7 +305,7 @@ namespace Diploma.Controllers
         {
             await InitializeAsync(employee);
             await Task.Run(() => AddPromotionToUser(employee.Email, degreeId));
-            return RedirectToAction("ShowEmployees");
+            return RedirectToAction("AddEmployee");
         }
 
         [Authorize(Roles = "Admin")]
@@ -345,10 +345,10 @@ namespace Diploma.Controllers
             if (await _userManager.FindByEmailAsync(email) == null)
             {
                 Employee newEmployee = new Employee { Email = email, UserName = email, EmailConfirmed = true, Name = name, Surname = surname };
-                IdentityResult result = await _userManager.CreateAsync(employee, password);
+                IdentityResult result = await _userManager.CreateAsync(newEmployee, password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(employee, "User");
+                    await _userManager.AddToRoleAsync(newEmployee, "User");
                 }
             }
         }
@@ -369,10 +369,4 @@ namespace Diploma.Controllers
 
     }
 
-    class User
-    {
-        public string Name;
-        public string Surname;
-        public string Secret;
-    }
 }

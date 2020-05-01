@@ -58,10 +58,10 @@
                                     @item.PromotionHistories.OrderBy(ph => ph.EndDate).LastOrDefault()?.Degree.Name
                                 </td>
                                 <td>
-                                    @item.PromotionHistories.OrderBy(ph => ph.StartDate).FirstOrDefault().StartDate.ToString("d")
+                                    @item.PromotionHistories.OrderBy(ph => ph.StartDate).FirstOrDefault()?.StartDate.ToString("d")
                                 </td>
                                 <td>
-                                    @item.PromotionHistories.OrderBy(ph => ph.EndDate).LastOrDefault().EndDate?.ToString("d")
+                                    @item.PromotionHistories.OrderBy(ph => ph.EndDate).LastOrDefault()?.EndDate?.ToString("d")
                                 </td>
                                 <td>
                                     <a asp-action="ReturnEmployee" asp-route-id="@item.Id" class="btn btn-success btn-circle">
@@ -76,7 +76,7 @@
                                     @item.PromotionHistories.OrderBy(ph => ph.EndDate).FirstOrDefault(ph => ph.EndDate == null)?.Degree.Name
                                 </td>
                                 <td>
-                                    @item.PromotionHistories.OrderBy(ph => ph.StartDate).FirstOrDefault().StartDate.ToString("d")
+                                    @item.PromotionHistories.OrderBy(ph => ph.StartDate).FirstOrDefault()?.StartDate.ToString("d")
                                 </td>
                                 <td>
                                     Still Working

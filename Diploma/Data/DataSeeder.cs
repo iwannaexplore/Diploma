@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Diploma.Data;
 using Diploma.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
-namespace Diploma.Extensions
+namespace Diploma.Data
 {
     public static class DataSeeder
     {
-
         public static void Seed(ApplicationDbContext _context)
         {
             if (!_context.Buyers.Any())

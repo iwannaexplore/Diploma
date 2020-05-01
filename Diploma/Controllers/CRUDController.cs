@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Diploma.Data;
 using Diploma.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Diploma.Controllers
 {
+    [Authorize]
     public class CrudController : Controller
     {
         private ApplicationDbContext _context;
@@ -252,6 +255,7 @@ namespace Diploma.Controllers
             return View(_context.Employees.Include(e => e.PromotionHistories).ThenInclude(ph => ph.Degree).ToList());
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EditEmployee(int id)
         {
@@ -260,6 +264,7 @@ namespace Diploma.Controllers
             return View(_context.Employees.FirstOrDefault(e => e.Id == id));
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditEmployee(Employee employee, int degreeId)
         {
@@ -286,6 +291,24 @@ namespace Diploma.Controllers
             return RedirectToAction("ShowEmployees");
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult AddEmployee()
+        {
+            ViewBag.DegreeId = new SelectList(_context.Degrees.ToList(), "Id", "Name");
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public async Task<IActionResult> AddEmployee(Employee employee, int degreeId)
+        {
+            await InitializeAsync(employee);
+            await Task.Run(() => AddPromotionToUser(employee.Email, degreeId));
+            return RedirectToAction("ShowEmployees");
+        }
+
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteEmployee(int id)
         {
             var oldHistory = _context.PromotionHistories.FirstOrDefault(ph => ph.EmployeeId == id && ph.EndDate == null);
@@ -294,9 +317,11 @@ namespace Diploma.Controllers
             _context.SaveChanges();
             return RedirectToAction("ShowEmployees");
         }
+
+        [Authorize(Roles = "Admin")]
         public IActionResult ReturnEmployee(int id)
         {
-            var oldHistory = _context.PromotionHistories.OrderBy(ph=>ph.EndDate).LastOrDefault(ph => ph.EmployeeId == id);
+            var oldHistory = _context.PromotionHistories.OrderBy(ph => ph.EndDate).LastOrDefault(ph => ph.EmployeeId == id);
             PromotionHistory newHistory = new PromotionHistory { DegreeId = oldHistory.DegreeId, EmployeeId = oldHistory.EmployeeId, StartDate = DateTime.Now, EndDate = null };
             _context.PromotionHistories.Add(newHistory);
             _context.SaveChanges();
@@ -309,5 +334,45 @@ namespace Diploma.Controllers
 
             return Json(new SelectList(list, "Id", "Address"));
         }
+
+        private async Task InitializeAsync(Employee employee)
+        {
+            string email = employee.Email;
+            string name = employee.Name;
+            string surname = employee.Surname;
+            string password = employee.PasswordHash;
+
+            if (await _userManager.FindByEmailAsync(email) == null)
+            {
+                Employee newEmployee = new Employee { Email = email, UserName = email, EmailConfirmed = true, Name = name, Surname = surname };
+                IdentityResult result = await _userManager.CreateAsync(employee, password);
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(employee, "User");
+                }
+            }
+        }
+
+        private void AddPromotionToUser(string email, int degreeId)
+        {
+            Employee employee = _context.Employees.FirstOrDefault(e => e.Email == email);
+            _context.PromotionHistories.Add(
+                new PromotionHistory
+                {
+                    DegreeId = degreeId,
+                    EmployeeId = employee.Id,
+                    StartDate = DateTime.Now,
+                    EndDate = null
+                });
+            _context.SaveChanges();
+        }
+
+    }
+
+    class User
+    {
+        public string Name;
+        public string Surname;
+        public string Secret;
     }
 }

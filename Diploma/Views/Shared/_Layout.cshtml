@@ -18,8 +18,6 @@
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.css" rel="stylesheet">
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -28,6 +26,7 @@
 </head>
 
 <body id="page-top">
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -60,10 +59,11 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Ad-dons
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -86,12 +86,19 @@
                         <h6 class="collapse-header">Seller:</h6>
                         <a class="collapse-item" href="@Url.Action("AddSeller", "Crud")">Add Seller</a>
                         <a class="collapse-item" href="@Url.Action("ShowSellers", "Crud")">Show Sellers</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Employee:</h6>
-                        <a class="collapse-item" href="@Url.Action("ShowEmployees", "Crud")">Show Employees</a>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Employee:</h6>
+                            <a class="collapse-item" href="@Url.Action("ShowEmployees", "Crud")">Add Employees</a>
+                            <a class="collapse-item" href="@Url.Action("ShowEmployees", "Crud")">Show Employees</a>
+                        }
+
                     </div>
                 </div>
             </li>
+
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
@@ -158,8 +165,6 @@
                         </li>
 
 
-
-
                         <!-- Nav Item - User Information -->
 
                         @if (SignInManager.IsSignedIn(User))
@@ -171,7 +176,7 @@
                             </li>
                             <div class="topbar-divider d-none d-sm-block mx-0"></div>
                             <li class="nav-item">
-                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})">
                                     <button type="submit" class="nav-link btn btn-link text-dark">
                                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">Logout</span>
                                     </button>
@@ -259,11 +264,9 @@
     <script src="/js/demo/datatables-demo.js"></script>
 
 
-    <!-- Page level plugins -->
-    <script src="/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-@RenderSection("scripts", required: false)
+    @RenderSection("scripts", false)
 </body>
 
 </html>

@@ -62,9 +62,10 @@ namespace Diploma.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [AllowAnonymous]
         public IActionResult PdfResult()
         {
-            return View(_context.Buyers.FirstOrDefault());
+            return View(new PdfResultViewModel());
         }
 
         private string[] MakeEarningChart(int year)
@@ -173,7 +174,7 @@ namespace Diploma.Controllers
             values = values.Where(e => e.EndDate >= end || e.EndDate == null || e.EndDate?.Year < end.Year || e.EndDate?.Month == 11).ToList();
             result += values?.Select(c => c.Degree.Salary)?.Sum();
             return string.Format("{0:0.00}", -result);
-        } //доделать
+        }
 
         private string[] MakeRevenueChart(int year)
         {
@@ -205,18 +206,16 @@ namespace Diploma.Controllers
             result[1] = string.Format("{0:0.00}", rentalNum / allContracts * 100);
             return result;
         }
+
         public IActionResult CreatePdfReport()
         {
-            var html = System.IO.File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "TestPdf.html"));
-
             var htmlToPdf = new HtmlToPdf();
 
             var pdf = htmlToPdf.RenderUrlAsPdf("https://localhost:44308/Home/PdfResult");
-            pdf.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), "MyPdf.Pdf"));
+            pdf.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), "MyPdf1.Pdf"));
 
-            return RedirectToAction("Index");
+            return RedirectToAction("PdfResult");
         }
 
-       
     }
 }

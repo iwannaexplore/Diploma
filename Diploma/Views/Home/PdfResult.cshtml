@@ -1,4 +1,4 @@
-﻿@model Buyer
+﻿@model Diploma.Models.ViewModels.PdfResultViewModel
 @{
     Layout = "";
 }
@@ -98,13 +98,12 @@
                     <table>
                         <tr>
                             <td class="title">
-                                @Model.Name
+                                Report
                             </td>
 
                             <td>
-                                Invoice #: 101<br>
-                                Created: January 1, 2017<br>
-                                Due: February 1, 2017
+                                Created: @Model.Created<br>
+                                Due: @Model.Due
                             </td>
                         </tr>
                     </table>
@@ -116,695 +115,217 @@
                     <table>
                         <tr>
                             <td>
-                                Just another company, Inc.<br>
-                                01 Another st.<br>
-                                Another City, AK 00001
+                                Diploma, Inc.<br>
+                                Vostok 50 st.<br>
+                                Minsk City, AK 24132
                             </td>
 
                             <td>
-                                Awesome company, Inc.<br>
-                                Steve Stevenson<br>
-                                awesomeSteve@awesomecompany.com
+                                Dmitriy Senko<br>
+                                dmitriy.senko.job@gmail.com
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
 
+
+
             <tr class="heading">
                 <td>
-                    Item name
+                    Main
                 </td>
 
                 <td>
-                    Price
+                    Cost
                 </td>
             </tr>
 
             <tr class="item">
                 <td>
-                    Architecture design
+                    Income
                 </td>
 
                 <td>
-                    100.00
+                    @Model.Income
                 </td>
             </tr>
-
-            <tr class="item">
-                <td>
-                    Prototyping
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Back End development
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Front End development
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Testing
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Bug fixing
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Support
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page. (lost my courage on this one, sorry)
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
             <tr class="item">
                 <td>
-                    Just couple of more items to hit Paging for A4 size page.
+                    Expenses
                 </td>
 
                 <td>
-                    100.00
+                    @Model.Expenses
                 </td>
             </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
-
-                <td>
-                    100.00
-                </td>
-            </tr>
-
             <tr class="item">
                 <td>
-                    Just couple of more items to hit Paging for A4 size page.
+                    Gross profit (loss)
                 </td>
 
                 <td>
-                    100.00
+                    @Model.GrossProfitOrLoss
                 </td>
             </tr>
-
             <tr class="item">
                 <td>
-                    Just couple of more items to hit Paging for A4 size page.
+                    Taxes
                 </td>
 
                 <td>
-                    100.00
+                    @Model.Taxes
                 </td>
             </tr>
-
             <tr class="item">
                 <td>
-                    Just couple of more items to hit Paging for A4 size page.
+                    Net profit
                 </td>
 
                 <td>
-                    100.00
+                    @Model.NetProfit
                 </td>
             </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
 
+            <tr >
+                <td></td>
                 <td>
-                    100.00
+                    Total: 100500.00
                 </td>
             </tr>
-
-            <tr class="item">
-                <td>
-                    Just couple of more items to hit Paging for A4 size page.
-                </td>
 
-                <td>
-                    100.00
-                </td>
-            </tr>
+        </table>
+        <br />
+        <table cellpadding="0" cellspacing="0">
 
-            <tr class="item">
+            <tr class="heading">
                 <td>
-                    Just couple of more items to hit Paging for A4 size page.
+                    Taxes
                 </td>
 
                 <td>
-                    100.00
+                    Cost
                 </td>
             </tr>
 
             <tr class="item">
                 <td>
-                    Just couple of more items to hit Paging for A4 size page.
+                    PayrollTaxes
                 </td>
 
                 <td>
-                    100.00
+                    @Model.PayrollTax
                 </td>
             </tr>
-
             <tr class="item">
                 <td>
-                    Just couple of more items to hit Paging for A4 size page.
+                    ContributionsToFunds
                 </td>
 
                 <td>
-                    100.00
+                    @Model.ContributionsToFunds
                 </td>
             </tr>
-
             <tr class="item">
                 <td>
-                    Just couple of more items to hit Paging for A4 size page.
+                    IncomeTaxes
                 </td>
 
                 <td>
-                    100.00
+                    @Model.IncomeTax
                 </td>
             </tr>
 
-            <tr class="total">
+            <tr>
                 <td></td>
 
                 <td>
                     Total: 100500.00
                 </td>
             </tr>
+
+        </table>
+        <br />
+        <table cellpadding="0" cellspacing="0">
+
+            <tr class="heading">
+                <td>
+                    Expenses
+                </td>
+
+                <td>
+                    Cost
+                </td>
+            </tr>
+
+            <tr class="item">
+                <td>
+                    Salary
+                </td>
+
+                <td>
+                    @Model.Salary
+                </td>
+            </tr>
+            <tr class="item">
+                <td>
+                    PaymentOfPremises
+                </td>
+
+                <td>
+                    @Model.PaymentOfPremises
+                </td>
+            </tr>
+
+            <tr >
+                <td></td>
+
+                <td>
+                    Total: 100500.00
+                </td>
+            </tr>
+
+        </table>
+        <br />
+        <table cellpadding="0" cellspacing="0">
+
+            <tbody>
+                <tr class="heading">
+                    <td>
+                        Income
+                    </td>
+
+                    <td>
+                        Cost
+                    </td>
+                </tr>
+
+                <tr class="item">
+                    <td>
+                        RentalService
+                    </td>
+
+                    <td>
+                        @Model.RentalService
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        PurchaseService
+                    </td>
+
+                    <td>
+                        @Model.PurchaseService
+                    </td>
+                </tr>
+                <tr >
+                    <td></td>
+
+                    <td>
+                        Total: 100500.00
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </body>

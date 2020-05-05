@@ -1,9 +1,12 @@
 ﻿
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <div class="d-flex justify-content-center w-50">
-        <input type="month" id="datePicker" class="form-control w-25" value="2020-05" onchange="renderPartial()">
+    <div>
+        <h1 class="h3 mb-0 text-gray-800 w-25">Dashboard</h1>
+        <p>Information is provided before tax deduction</p>
+    </div>
+    <div class="d-flex justify-content-center w-50 mr-5 pr-5">
+        <input type="month" id="datePicker" class="form-control w-25 mr-5" value="2020-05" onchange="renderPartial()">
     </div>
     <a href="@Url.Action("CreatePdfReport", "Home")" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>

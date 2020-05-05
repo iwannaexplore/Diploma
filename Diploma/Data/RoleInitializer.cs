@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Diploma.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace Diploma
+namespace Diploma.Data
 {
     public class RoleInitializer
     {

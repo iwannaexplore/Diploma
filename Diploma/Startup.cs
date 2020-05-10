@@ -43,6 +43,7 @@ namespace Diploma
                     }).AddRoles<IdentityRole<int>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+            services.AddScoped<Reporter>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }

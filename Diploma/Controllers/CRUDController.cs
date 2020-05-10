@@ -276,7 +276,7 @@ namespace Diploma.Controllers
             }
             _context.PromotionHistories.Update(oldHistory);
             _context.SaveChanges();
-            PromotionHistory newHistory = new PromotionHistory { DegreeId = degreeId, EmployeeId = employee.Id, StartDate = DateTime.Now, EndDate = null };
+            PromotionHistory newHistory = new PromotionHistory { DegreeId = degreeId, EmployeeId = employee.Id, StartDate = DateTime.Now.AddMonths(-1), EndDate = null };
             _context.PromotionHistories.Add(newHistory);
             _context.SaveChanges();
             var newEmployee = _context.Employees.FirstOrDefault(e => e.Id == employee.Id);

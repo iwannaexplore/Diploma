@@ -10,24 +10,23 @@ namespace Diploma.Models.ViewModels
         public string Created;
         public string Due;
 
-        public double Income;
-        public double Expenses;
-        public double GrossProfitOrLoss;
-        public double Taxes;
-        public double NetProfit;
-        public double TotalForMain;
+        public string Income;
+        public string Expenses;
+        public string GrossProfitOrLoss;
+        public string Taxes;
+        public string NetProfit;
 
-        public double PayrollTax;
-        public double ContributionsToFunds;
-        public double IncomeTax;
-        public double TotalForTaxes;
+        public string PayrollTax;
+        public string ContributionsToFunds;
+        public string IncomeTax;
+        public string TotalForTaxes;
 
-        public double Salary;
-        public double PaymentOfPremises;
-        public double TotalForExpenses;
+        public string Salary;
+        public string PaymentOfPremises;
+        public string TotalForExpenses;
 
-        public double RentalService;
-        public double PurchaseService;
-        public double TotalForIncomes;
+        public string RentalService;
+        public string PurchaseService;
+        public string TotalForIncomes;
     }
 }

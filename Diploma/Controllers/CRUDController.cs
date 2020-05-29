@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Diploma.Data;
 using Diploma.Models;
+using Diploma.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -326,6 +327,35 @@ namespace Diploma.Controllers
             _context.PromotionHistories.Add(newHistory);
             _context.SaveChanges();
             return RedirectToAction("ShowEmployees");
+        }
+
+        [HttpGet]
+        public IActionResult Settings(string? info)
+        {
+            ViewBag.InfoString = info;
+            SettingsViewModel model = new SettingsViewModel()
+            {
+                ContributionsToFunds = decimal.Parse(Environment.GetEnvironmentVariable("ContributionsToFunds")),
+                IncomeTax = decimal.Parse(Environment.GetEnvironmentVariable("IncomeTax")),
+                PaymentOfPremises = decimal.Parse(Environment.GetEnvironmentVariable("PaymentOfPremises")),
+                PayrollTax = decimal.Parse(Environment.GetEnvironmentVariable("PayrollTax")),
+                PercentageOfRental = decimal.Parse(Environment.GetEnvironmentVariable("PercentageOfRental")),
+                PercentageOfSales = decimal.Parse(Environment.GetEnvironmentVariable("PercentageOfSales"))
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Settings(SettingsViewModel model)
+        {
+            Environment.SetEnvironmentVariable("ContributionsToFunds", model.ContributionsToFunds.ToString());
+            Environment.SetEnvironmentVariable("IncomeTax", model.IncomeTax.ToString());
+            Environment.SetEnvironmentVariable("PaymentOfPremises", model.PaymentOfPremises.ToString());
+            Environment.SetEnvironmentVariable("PayrollTax", model.PayrollTax.ToString());
+            Environment.SetEnvironmentVariable("PercentageOfRental", model.PercentageOfRental.ToString());
+            Environment.SetEnvironmentVariable("PercentageOfSales", model.PercentageOfSales.ToString());
+            return RedirectToAction("Settings", new {info = "Complete!"});
         }
 
         public JsonResult GetHousesBySellerId(int id)

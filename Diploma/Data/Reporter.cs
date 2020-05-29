@@ -12,7 +12,7 @@ namespace Diploma.Data
         private readonly decimal? _contributionsToFunds =
             decimal.Parse(Environment.GetEnvironmentVariable("ContributionsToFunds"));
 
-        private readonly decimal? _incomeTax = decimal.Parse(Environment.GetEnvironmentVariable("IcomeTax"));
+        private readonly decimal? _incomeTax = decimal.Parse(Environment.GetEnvironmentVariable("IncomeTax"));
 
         private readonly decimal? _paymentOfPremises =
             decimal.Parse(Environment.GetEnvironmentVariable("PaymentOfPremises"));
@@ -34,8 +34,8 @@ namespace Diploma.Data
         {
             PdfResultViewModel model = new PdfResultViewModel
             {
-                Created = DateOfCreation(year, month),
-                Due = EndDate(year, month),
+                Created = DateOfCreation(year, month).ToString("d"),
+                Due = EndDate(year, month).ToString("d"),
 
                 Income = string.Format("{0:0.00}", MonthlyTotalForIncomes(year, month)),
                 Expenses = string.Format("{0:0.00}", MonthlyTotalForExpenses(year, month)),
@@ -60,17 +60,40 @@ namespace Diploma.Data
 
         public PdfResultViewModel CreateAnnualReport(int year)
         {
-            return default;
+            PdfResultViewModel model = new PdfResultViewModel
+            {
+                Created = DateOfCreation(year, 1).ToString("d"),
+                Due = EndDate(year, 12).ToString("d"),
+
+                Income = string.Format("{0:0.00}", AnnualFunction(year, MonthlyTotalForIncomes)),
+                Expenses = string.Format("{0:0.00}", AnnualFunction(year, MonthlyTotalForExpenses)),
+                GrossProfitOrLoss = string.Format("{0:0.00}", AnnualFunction(year, MonthlyRevenue)),
+                Taxes = string.Format("{0:0.00}", AnnualFunction(year, MonthlyTotalForTaxes)),
+                NetProfit = string.Format("{0:0.00}", AnnualFunction(year, MonthlyNetProfit)),
+                PayrollTax = string.Format("{0:0.00}", AnnualFunction(year, MonthlyPayrollTax)),
+                ContributionsToFunds = string.Format("{0:0.00}", AnnualFunction(year, MonthlyContributionsToFunds)),
+                IncomeTax = string.Format("{0:0.00}", AnnualFunction(year, MonthlyIncomeTax)),
+                TotalForTaxes = string.Format("{0:0.00}", AnnualFunction(year, MonthlyTotalForTaxes)),
+                Salary = string.Format("{0:0.00}", AnnualFunction(year, MonthlySalary)),
+                PaymentOfPremises = string.Format("{0:0.00}", AnnualFunction(year, MonthlyPaymentOfPremises)),
+                TotalForExpenses = string.Format("{0:0.00}", AnnualFunction(year, MonthlyTotalForExpenses)),
+                RentalService = string.Format("{0:0.00}", AnnualFunction(year, MonthlyRentalService)),
+                PurchaseService = string.Format("{0:0.00}", AnnualFunction(year, MonthlyPurchaseService)),
+                TotalForIncomes = string.Format("{0:0.00}", AnnualFunction(year, MonthlyTotalForIncomes))
+            };
+
+
+            return model;
         }
 
-        private string DateOfCreation(int year, int month)
+        private DateTime DateOfCreation(int year, int month)
         {
-            return new DateTime(year, month, 1).ToString("d");
+            return new DateTime(year, month, 1);
         }
 
-        private string EndDate(int year, int month)
+        private DateTime EndDate(int year, int month)
         {
-            return new DateTime(year, month, DateTime.DaysInMonth(year, month)).ToString("d");
+            return new DateTime(year, month, DateTime.DaysInMonth(year, month));
         }
 
         private decimal? MonthlyNetProfit(int year, int month)
@@ -179,21 +202,14 @@ namespace Diploma.Data
             return MonthlyIncome(year, month) - MonthlyExpenses(year, month);
         }
 
-        public decimal? AnnualIncome(int year)
+        public decimal? AnnualFunction(int year, Func<int, int, decimal?> monthlyFunction)
         {
             decimal? result = 0;
 
-            for (var month = 1; month <= 12; month++) result += MonthlyIncome(year, month);
+            for (var month = 1; month <= 12; month++) result += monthlyFunction(year, month);
 
             return result;
         }
 
-        public decimal? AnnualExpenses(int year)
-        {
-            decimal? result = 0;
-            for (var month = 1; month <= 12; month++) result += MonthlyExpenses(year, month);
-
-            return result;
-        }
     }
 }

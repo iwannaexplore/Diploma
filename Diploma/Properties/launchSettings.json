@@ -16,9 +16,9 @@
         "PayrollTax": "0.34",
         "ContributionsToFunds": "0.06",
         "PercentageOfRental": "0.07",
-        "IcomeTax": "0.16",
         "PaymentOfPremises": "600",
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "IncomeTax": "0.16"
       }
     },
     "Diploma": {

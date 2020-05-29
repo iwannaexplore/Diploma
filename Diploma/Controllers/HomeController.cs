@@ -25,15 +25,18 @@ namespace Diploma.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly Reporter _reporter;
-        public HomeController(ApplicationDbContext context, Reporter reporter)
+        private readonly IAnimal _animal;
+        public HomeController(ApplicationDbContext context, Reporter reporter, IAnimal animal)
         {
             _context = context;
             _reporter = reporter;
+            _animal = animal;
         }
 
 
         public IActionResult Index()
         {
+            ViewBag.Animal = _animal.Voice();
             return View();
         }
 
@@ -93,7 +96,7 @@ namespace Diploma.Controllers
         private string[] MakeRevenueChart(int year)
         {
             var result = new string[12];
-            for (int month = 1; month < 12; month++)
+            for (int month = 1; month <= 12; month++)
             {
                 result[month-1] = string.Format("{0:0.00}", _reporter.MonthlyRevenue(year, month));
             }
@@ -102,12 +105,12 @@ namespace Diploma.Controllers
 
         private string MakeAnnualIncomeCard(int year)
         {
-            return string.Format("{0:0.00}", _reporter.AnnualIncome(year));
+            return string.Format("{0:0.00}", _reporter.AnnualFunction(year, _reporter.MonthlyIncome));
         } //ready
 
         private string MakeAnnualExpensesCard(int year)
         {
-            return string.Format("{0:0.00}", _reporter.AnnualExpenses(year));
+            return string.Format("{0:0.00}", _reporter.AnnualFunction(year, _reporter.MonthlyExpenses));
         } //ready
 
         private string MakeMonthlyIncomeCard(int year, int month)
@@ -138,9 +141,13 @@ namespace Diploma.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult PdfResult(int year, int month)
+        public IActionResult PdfResult(int year, int? month)
         {
-            return View(_reporter.CreateMonthlyReport(year,month));
+            if (month != null)
+            {
+                return View(_reporter.CreateMonthlyReport(year, (int)month));
+            }
+            return View(_reporter.CreateAnnualReport(year));
         }
 
         [HttpGet]
@@ -149,20 +156,20 @@ namespace Diploma.Controllers
             var htmlToPdf = new HtmlToPdf();
 
             var pdf = htmlToPdf.RenderUrlAsPdf($"https://localhost:44308/Home/PdfResult?year={year}&month={month}");
-            pdf.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), "MyPdf1.Pdf"));
+            pdf.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), $"MonthlyReport_{year}_{month}.Pdf"));
 
             return RedirectToAction("PdfResult", new {year = year, month = month});
         }
 
         [HttpGet]
-        public IActionResult CreateAnnualPdfReport()
+        public IActionResult CreateAnnualPdfReport(int year)
         {
             var htmlToPdf = new HtmlToPdf();
 
-            var pdf = htmlToPdf.RenderUrlAsPdf("https://localhost:44308/Home/AnnualPdfResult");
-            pdf.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), "MyPdf1.Pdf"));
+            var pdf = htmlToPdf.RenderUrlAsPdf($"https://localhost:44308/Home//PdfResult?year={year}");
+            pdf.SaveAs(Path.Combine(Directory.GetCurrentDirectory(), $"AnnualReport_{year}.Pdf"));
 
-            return RedirectToAction("PdfResult");
+            return RedirectToAction("PdfResult", new {year = year});
         }
     }
 }

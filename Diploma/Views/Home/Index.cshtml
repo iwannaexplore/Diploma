@@ -8,8 +8,8 @@
     <div class="d-flex justify-content-center w-50 mr-5 pr-5">
         <input type="month" id="datePicker" class="form-control w-25 mr-5" value="2020-05" onchange="renderPartial()">
     </div>
-    <a href="#" id ="monthlyReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Monthly Report</a>
-    <a href="#" id="annualReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Annual Report</a>
+    <a href="" id ="monthlyReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Monthly Report</a>
+    <a href="" id="annualReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Annual Report</a>
 </div>
 <div class="" id="specialContainer">
 
@@ -29,6 +29,7 @@
 
 
             $("#monthlyReport").attr("href", '@Url.Action("CreateMonthlyPdfReport", "Home")?year=' + year + '&month=' + month);
+            $("#annualReport").attr("href", '@Url.Action("CreateAnnualPdfReport", "Home")?year=' + year);
         }
         renderPartial(2020, 05);
 

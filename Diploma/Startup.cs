@@ -38,12 +38,13 @@ namespace Diploma
                         options.Password.RequireLowercase = false;
                         options.Password.RequireNonAlphanumeric = false;
                         options.Password.RequireUppercase = false;
-                        options.Password.RequiredLength = 3;
+                        options.Password.RequiredLength = 2;
                         options.User.RequireUniqueEmail = true;
                     }).AddRoles<IdentityRole<int>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
             services.AddScoped<Reporter>();
+            services.AddScoped<IAnimal, Dog>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }

@@ -691,6 +691,391 @@ namespace Diploma.Data
                         StartDate = DateTime.Today.AddMonths(-3).AddDays(-15),
                         ContractTypeId = 2,
                         Price = 700M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 1,
+                        EndDate = DateTime.Today.AddDays(45),
+                        StartDate = DateTime.Today.AddDays(-45),
+                        ContractTypeId = 1,
+                        Price = 300M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 1,
+                        EndDate = DateTime.Today.AddDays(0),
+                        StartDate = DateTime.Today.AddDays(-30),
+                        ContractTypeId = 1,
+                        Price = 500M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 2,
+                        EmployeeId = 1,
+                        SellerId = 2,
+                        HouseId = 2,
+                        EndDate = DateTime.Today.AddMonths(2).AddDays(35),
+                        StartDate = DateTime.Today.AddMonths(2).AddDays(-35),
+                        ContractTypeId = 1,
+                        Price = 200M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 3,
+                        EmployeeId = 1,
+                        SellerId = 3,
+                        HouseId = 3,
+                        EndDate = DateTime.Today.AddMonths(2).AddDays(75),
+                        StartDate = DateTime.Today.AddMonths(2).AddDays(-75),
+                        ContractTypeId = 1,
+                        Price = 1500M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 4,
+                        EndDate = DateTime.Today.AddMonths(2).AddDays(125),
+                        StartDate = DateTime.Today.AddMonths(3).AddDays(-95),
+                        ContractTypeId = 1,
+                        Price = 1200M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 2,
+                        HouseId = 5,
+                        EndDate = null,
+                        StartDate = DateTime.Today.AddMonths(1).AddDays(-135),
+                        ContractTypeId = 2,
+                        Price = 30000M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 3,
+                        EmployeeId = 1,
+                        SellerId = 3,
+                        HouseId = 6,
+                        EndDate = DateTime.Today.AddDays(15),
+                        StartDate = DateTime.Today.AddDays(-35),
+                        ContractTypeId = 1,
+                        Price = 300M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 2,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 7,
+                        EndDate = DateTime.Today.AddDays(15),
+                        StartDate = DateTime.Today.AddDays(-35),
+                        ContractTypeId = 2,
+                        Price = 700M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 1,
+                        EndDate = DateTime.Today.AddDays(15),
+                        StartDate = DateTime.Today.AddDays(-35),
+                        ContractTypeId = 1,
+                        Price = 300M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 1,
+                        EndDate = DateTime.Today.AddMonths(6).AddDays(-30),
+                        StartDate = DateTime.Today.AddMonths(6).AddDays(-30),
+                        ContractTypeId = 1,
+                        Price = 500M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 2,
+                        EmployeeId = 1,
+                        SellerId = 2,
+                        HouseId = 2,
+                        EndDate = DateTime.Today.AddMonths(7).AddDays(15),
+                        StartDate = DateTime.Today.AddMonths(7).AddDays(-35),
+                        ContractTypeId = 1,
+                        Price = 200M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 3,
+                        EmployeeId = 1,
+                        SellerId = 3,
+                        HouseId = 3,
+                        EndDate = DateTime.Today.AddMonths(-4).AddDays(55),
+                        StartDate = DateTime.Today.AddMonths(-4).AddDays(-35),
+                        ContractTypeId = 1,
+                        Price = 1500M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 4,
+                        EndDate = DateTime.Today.AddMonths(-5).AddDays(95),
+                        StartDate = DateTime.Today.AddMonths(-5).AddDays(-35),
+                        ContractTypeId = 1,
+                        Price = 1200M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 2,
+                        HouseId = 5,
+                        EndDate = null,
+                        StartDate = DateTime.Today.AddMonths(-5).AddDays(-135),
+                        ContractTypeId = 2,
+                        Price = 30000M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 3,
+                        EmployeeId = 1,
+                        SellerId = 3,
+                        HouseId = 6,
+                        EndDate = DateTime.Today.AddMonths(-4).AddDays(15),
+                        StartDate = DateTime.Today.AddMonths(-4).AddDays(-35),
+                        ContractTypeId = 1,
+                        Price = 300M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 2,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 7,
+                        EndDate = DateTime.Today.AddMonths(-3).AddDays(15),
+                        StartDate = DateTime.Today.AddMonths(-3).AddDays(-65),
+                        ContractTypeId = 2,
+                        Price = 700M
+                    },
+
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 1,
+                        EndDate = DateTime.Today.AddDays(15),
+                        StartDate = DateTime.Today.AddDays(-65),
+                        ContractTypeId = 1,
+                        Price = 300M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 1,
+                        EndDate = DateTime.Today.AddDays(-30),
+                        StartDate = DateTime.Today.AddDays(-120),
+                        ContractTypeId = 1,
+                        Price = 500M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 2,
+                        EmployeeId = 1,
+                        SellerId = 2,
+                        HouseId = 2,
+                        EndDate = DateTime.Today.AddMonths(4).AddDays(15),
+                        StartDate = DateTime.Today.AddMonths(4).AddDays(-65),
+                        ContractTypeId = 1,
+                        Price = 200M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 3,
+                        EmployeeId = 1,
+                        SellerId = 3,
+                        HouseId = 3,
+                        EndDate = DateTime.Today.AddMonths(4).AddDays(55),
+                        StartDate = DateTime.Today.AddMonths(4).AddDays(-115),
+                        ContractTypeId = 1,
+                        Price = 1500M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 4,
+                        EndDate = DateTime.Today.AddMonths(5).AddDays(95),
+                        StartDate = DateTime.Today.AddMonths(6).AddDays(-1555),
+                        ContractTypeId = 1,
+                        Price = 1200M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 2,
+                        HouseId = 5,
+                        EndDate = null,
+                        StartDate = DateTime.Today.AddMonths(6).AddDays(-155),
+                        ContractTypeId = 2,
+                        Price = 30000M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 3,
+                        EmployeeId = 1,
+                        SellerId = 3,
+                        HouseId = 6,
+                        EndDate = DateTime.Today.AddDays(15),
+                        StartDate = DateTime.Today.AddDays(-65),
+                        ContractTypeId = 1,
+                        Price = 300M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 2,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 7,
+                        EndDate = DateTime.Today.AddDays(15),
+                        StartDate = DateTime.Today.AddDays(-65),
+                        ContractTypeId = 2,
+                        Price = 700M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 1,
+                        EndDate = DateTime.Today.AddDays(15),
+                        StartDate = DateTime.Today.AddDays(-65),
+                        ContractTypeId = 1,
+                        Price = 300M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 1,
+                        EndDate = DateTime.Today.AddMonths(7).AddDays(-30),
+                        StartDate = DateTime.Today.AddMonths(7).AddDays(-120),
+                        ContractTypeId = 1,
+                        Price = 500M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 2,
+                        EmployeeId = 1,
+                        SellerId = 2,
+                        HouseId = 2,
+                        EndDate = DateTime.Today.AddMonths(-5).AddDays(15),
+                        StartDate = DateTime.Today.AddMonths(-5).AddDays(-65),
+                        ContractTypeId = 1,
+                        Price = 200M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 3,
+                        EmployeeId = 1,
+                        SellerId = 3,
+                        HouseId = 3,
+                        EndDate = DateTime.Today.AddMonths(-6).AddDays(55),
+                        StartDate = DateTime.Today.AddMonths(-6).AddDays(-105),
+                        ContractTypeId = 1,
+                        Price = 1500M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 4,
+                        EndDate = DateTime.Today.AddMonths(-7).AddDays(95),
+                        StartDate = DateTime.Today.AddMonths(-7).AddDays(-195),
+                        ContractTypeId = 1,
+                        Price = 1200M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 1,
+                        EmployeeId = 1,
+                        SellerId = 2,
+                        HouseId = 5,
+                        EndDate = null,
+                        StartDate = DateTime.Today.AddMonths(-5).AddDays(-165),
+                        ContractTypeId = 2,
+                        Price = 30000M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 3,
+                        EmployeeId = 1,
+                        SellerId = 3,
+                        HouseId = 6,
+                        EndDate = DateTime.Today.AddMonths(-4).AddDays(15),
+                        StartDate = DateTime.Today.AddMonths(-4).AddDays(-75),
+                        ContractTypeId = 1,
+                        Price = 300M
+                    },
+                    new Contract
+                    {
+
+                        BuyerId = 2,
+                        EmployeeId = 1,
+                        SellerId = 1,
+                        HouseId = 7,
+                        EndDate = DateTime.Today.AddMonths(-3).AddDays(15),
+                        StartDate = DateTime.Today.AddMonths(-3).AddDays(-75),
+                        ContractTypeId = 2,
+                        Price = 700M
                     });
                 _context.SaveChanges();
             }

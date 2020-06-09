@@ -14,7 +14,7 @@ namespace Diploma.Models
         public ContractType ContractType { get; set; }
         [DisplayName("Тип контракта")]
         public int ContractTypeId { get; set; }
-        [Column(TypeName = "Стоимость")]
+        [DisplayName("Стоимость")]
         [Required]
         [Range(1, 99999999.99, ErrorMessage = "Please enter a value bigger than {1}")]
         public decimal Price { get; set; }

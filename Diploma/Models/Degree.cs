@@ -16,7 +16,7 @@ namespace Diploma.Models
 
         [Required]
         [Range(0, 999999.99)]
-        [Column(TypeName = "Зарплата")]
+        [DisplayName("Зарплата")]
         public decimal Salary { get; set; }
         public List<PromotionHistory> PromotionHistories { get; set; }
     }

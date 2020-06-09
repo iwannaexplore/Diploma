@@ -25,18 +25,15 @@ namespace Diploma.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly Reporter _reporter;
-        private readonly IAnimal _animal;
-        public HomeController(ApplicationDbContext context, Reporter reporter, IAnimal animal)
+        public HomeController(ApplicationDbContext context, Reporter reporter)
         {
             _context = context;
             _reporter = reporter;
-            _animal = animal;
         }
 
 
         public IActionResult Index()
         {
-            ViewBag.Animal = _animal.Voice();
             return View();
         }
 
@@ -56,10 +53,6 @@ namespace Diploma.Controllers
             return PartialView(model);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

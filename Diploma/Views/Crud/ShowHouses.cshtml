@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Diploma.Models.House>
 
 @{
-    ViewData["Title"] = "ShowHouses";
+    ViewData["Title"] = "Дома";
 }
-<h1 class="h3 mb-2 text-gray-800">All Houses</h1>
-<p class="mb-4">If you remove a house - its contract will be deleted</p>
+<h1 class="h3 mb-2 text-gray-800">Все дома</h1>
+<p class="mb-4">Если вы удалите дом - контракт связанный с ним так же будет удален</p>
 
 <div class="card shadow mb-4">
     <div class="card-header d-flex justify-content-end py-3">
@@ -18,12 +18,12 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Address)
+                           Адрес
                         </th>
                         <th>
-                            Seller
+                            Продавец
                         </th>
-                        <th></th>
+                        <th>Действия</th>
                     </tr>
                 </thead>
                 <tbody>

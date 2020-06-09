@@ -2,11 +2,11 @@
 @model IEnumerable<Diploma.Models.Employee>
 
 @{
-    ViewData["Title"] = "ShowEmployee";
+    ViewData["Title"] = "Работники";
 }
 
-<h1 class="h3 mb-2 text-gray-800">All Employees</h1>
-<p class="mb-4">You can edit, add, laid-off and arrange</p>
+<h1 class="h3 mb-2 text-gray-800">Все работники</h1>
+<p class="mb-4">Вы можете редактировать, уволить и принять на работу</p>
 
 <div class="card shadow mb-4">
     <div class="card-header d-flex justify-content-end py-3">
@@ -20,20 +20,20 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            Имя
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Surname)
+                            Фамилия
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Email)
+                            Почта
                         </th>
                         <th>
-                            Degree
+                            Степень
                         </th>
-                        <th>First Day Of Work</th>
+                        <th>Начало работы</th>
                         <th>
-                            Last Day Of Work
+                            Конец работы
                         </th>
                         <th></th>
                     </tr>
@@ -79,7 +79,7 @@
                                     @item.PromotionHistories.OrderBy(ph => ph.StartDate).FirstOrDefault()?.StartDate.ToString("d")
                                 </td>
                                 <td>
-                                    Still Working
+                                    В штате
                                 </td>
                                 <td>
                                     <a asp-action="EditEmployee" asp-route-id="@item.Id" class="btn btn-info btn-circle">

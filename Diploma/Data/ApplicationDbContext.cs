@@ -18,6 +18,7 @@ namespace Diploma.Data
         public DbSet<ContractType> ContractTypes { get; set; }
         public DbSet<PromotionHistory> PromotionHistories { get; set; }
         public DbSet<Degree> Degrees { get; set; }
+      
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

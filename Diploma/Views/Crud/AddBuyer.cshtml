@@ -1,10 +1,10 @@
 ﻿@model Buyer
 
 @{
-    ViewData["Title"] = "AddBuyer";
+    ViewData["Title"] = "Добавить";
 }
 
-<h1>Add Buyer</h1>
+    <h1>Добавить покупателя</h1>
 
 <hr />
 <div class="row">
@@ -22,7 +22,7 @@
                 <span asp-validation-for="Surname" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PassportId" class="control-label">Passport ID</label>
+                <label asp-for="PassportId" class="control-label"></label>
                 <input asp-for="PassportId" class="form-control form-control-user" placeholder="00XX0000000X" />
                 <span asp-validation-for="PassportId" class="text-danger"></span>
             </div>

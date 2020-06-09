@@ -44,7 +44,6 @@ namespace Diploma
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
             services.AddScoped<Reporter>();
-            services.AddScoped<IAnimal, Dog>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }

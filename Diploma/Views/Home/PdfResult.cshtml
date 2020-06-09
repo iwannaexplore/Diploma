@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Test invoice #101</title>
+    <title>Отчет</title>
 
     <style>
 
@@ -98,12 +98,12 @@
                     <table>
                         <tr>
                             <td class="title">
-                                Report
+                                @Model.Name
                             </td>
 
                             <td>
-                                Created: @Model.Created<br>
-                                Due: @Model.Due
+                                С: @Model.Created<br>
+                                По: @Model.Due
                             </td>
                         </tr>
                     </table>
@@ -115,13 +115,13 @@
                     <table>
                         <tr>
                             <td>
-                                Diploma, Inc.<br>
-                                Vostok 50 st.<br>
-                                Minsk City, AK 24132
+                                Диплом, Inc.<br>
+                                Восточная 50<br>
+                                Минск, 24132
                             </td>
 
                             <td>
-                                Dmitriy Senko<br>
+                                Дмитрий Сенько<br>
                                 dmitriy.senko.job@gmail.com
                             </td>
                         </tr>
@@ -133,17 +133,17 @@
 
             <tr class="heading">
                 <td>
-                    Main
+                    Категория
                 </td>
 
                 <td>
-                    Cost
+                    Стоимость
                 </td>
             </tr>
 
             <tr class="item">
                 <td>
-                    <strong>Income</strong>
+                    <strong>Доход</strong>
                 </td>
 
                 <td>
@@ -152,7 +152,7 @@
             </tr>
             <tr class="item">
                 <td>
-                    <strong>Expenses </strong>
+                    <strong>Расход</strong>
                 </td>
 
                 <td>
@@ -161,7 +161,7 @@
             </tr>
             <tr class="item">
                 <td>
-                    Gross profit
+                    Валовый доход
                 </td>
 
                 <td>
@@ -170,7 +170,7 @@
             </tr>
             <tr class="item">
                 <td>
-                    <strong>Taxes </strong>
+                    <strong>Налог </strong>
                 </td>
 
                 <td>
@@ -179,7 +179,7 @@
             </tr>
             <tr class="item">
                 <td>
-                    Net profit
+                    Чистая прибыль
                 </td>
 
                 <td>
@@ -192,19 +192,103 @@
         <br />
         <table cellpadding="0" cellspacing="0">
 
+            <tbody>
+                <tr class="heading">
+                    <td>
+                        Доход
+                    </td>
+
+                    <td>
+                        Стоимость
+                    </td>
+                </tr>
+
+                <tr class="item">
+                    <td>
+                        Процент с аренды
+                    </td>
+
+                    <td>
+                        @Model.RentalService
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Процент с продажи
+                    </td>
+
+                    <td>
+                        @Model.PurchaseService
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+
+                    <td>
+                        Итог: @Model.TotalForIncomes
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br />
+
+        <table cellpadding="0" cellspacing="0">
+
             <tr class="heading">
                 <td>
-                    Taxes
+                    Расходы
                 </td>
 
                 <td>
-                    Cost
+                    Стоимость
                 </td>
             </tr>
 
             <tr class="item">
                 <td>
-                    PayrollTaxes
+                    Зарплаты
+                </td>
+
+                <td>
+                    @Model.Salary
+                </td>
+            </tr>
+            <tr class="item">
+                <td>
+                    Аренда помещения
+                </td>
+
+                <td>
+                    @Model.PaymentOfPremises
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+
+                <td>
+                    Итог: @Model.TotalForExpenses
+                </td>
+            </tr>
+
+        </table>
+        <br />
+        <table cellpadding="0" cellspacing="0">
+
+            <tr class="heading">
+                <td>
+                    Налоги
+                </td>
+
+                <td>
+                    Стоимость
+                </td>
+            </tr>
+
+            <tr class="item">
+                <td>
+                    Налоги на заработную плату
                 </td>
 
                 <td>
@@ -213,7 +297,7 @@
             </tr>
             <tr class="item">
                 <td>
-                    ContributionsToFunds
+                    Взносы в фонды
                 </td>
 
                 <td>
@@ -222,7 +306,7 @@
             </tr>
             <tr class="item">
                 <td>
-                    IncomeTaxes
+                    Подоходный налог
                 </td>
 
                 <td>
@@ -234,92 +318,10 @@
                 <td></td>
 
                 <td>
-                    Total: @Model.TotalForTaxes
+                    Итог: @Model.TotalForTaxes
                 </td>
             </tr>
 
-        </table>
-        <br />
-        <table cellpadding="0" cellspacing="0">
-
-            <tr class="heading">
-                <td>
-                    Expenses
-                </td>
-
-                <td>
-                    Cost
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Salary
-                </td>
-
-                <td>
-                    @Model.Salary
-                </td>
-            </tr>
-            <tr class="item">
-                <td>
-                    PaymentOfPremises
-                </td>
-
-                <td>
-                    @Model.PaymentOfPremises
-                </td>
-            </tr>
-
-            <tr >
-                <td></td>
-
-                <td>
-                    Total: @Model.TotalForExpenses
-                </td>
-            </tr>
-
-        </table>
-        <br />
-        <table cellpadding="0" cellspacing="0">
-
-            <tbody>
-                <tr class="heading">
-                    <td>
-                        Income
-                    </td>
-
-                    <td>
-                        Cost
-                    </td>
-                </tr>
-
-                <tr class="item">
-                    <td>
-                        RentalService
-                    </td>
-
-                    <td>
-                        @Model.RentalService
-                    </td>
-                </tr>
-                <tr class="item">
-                    <td>
-                        PurchaseService
-                    </td>
-
-                    <td>
-                        @Model.PurchaseService
-                    </td>
-                </tr>
-                <tr >
-                    <td></td>
-
-                    <td>
-                        Total: @Model.TotalForIncomes
-                    </td>
-                </tr>
-            </tbody>
         </table>
     </div>
 </body>

@@ -34,6 +34,8 @@ namespace Diploma.Data
         {
             PdfResultViewModel model = new PdfResultViewModel
             {
+                Name = $"Отчет за месяц",
+
                 Created = DateOfCreation(year, month).ToString("d"),
                 Due = EndDate(year, month).ToString("d"),
 
@@ -62,6 +64,8 @@ namespace Diploma.Data
         {
             PdfResultViewModel model = new PdfResultViewModel
             {
+                Name = $"Отчет за год",
+
                 Created = DateOfCreation(year, 1).ToString("d"),
                 Due = EndDate(year, 12).ToString("d"),
 
@@ -103,17 +107,20 @@ namespace Diploma.Data
 
         private decimal? MonthlyPayrollTax(int year, int month)
         {
-            return MonthlyExpenses(year, month) * _payrollTax;
+            return MonthlySalary(year, month) * _payrollTax;
         }
 
         private decimal? MonthlyContributionsToFunds(int year, int month)
         {
-            return MonthlyExpenses(year, month) * _contributionsToFunds;
+            return MonthlySalary(year, month) * _contributionsToFunds;
         }
 
         private decimal? MonthlyIncomeTax(int year, int month)
         {
-            return MonthlyRevenue(year, month) * _incomeTax;
+            var monthlyRevenue = MonthlyRevenue(year, month);
+            if (monthlyRevenue > 0)
+                return MonthlyRevenue(year, month) * _incomeTax;
+            return 0;
         }
 
         private decimal? MonthlyTotalForTaxes(int year, int month)
@@ -124,7 +131,18 @@ namespace Diploma.Data
 
         private decimal? MonthlySalary(int year, int month)
         {
-            return MonthlyExpenses(year, month);
+            var startDate = new DateTime(year, 1, 1).AddMonths(-1);
+            var endDate = new DateTime(year, 12, 1);
+            var promotionHistories =
+                _context.PromotionHistories.Include(ph => ph.Degree).Where(ph =>
+                    ph.StartDate > startDate || ph.EndDate < endDate || ph.EndDate == null).ToList();
+
+            var start = new DateTime(year, month, 1);
+            var end = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+            var values = promotionHistories.Where(e => e.StartDate <= start).ToList();
+            values = values.Where(e =>
+                e.EndDate >= end || e.EndDate == null || e.EndDate?.Year < end.Year || e.EndDate?.Month == 11).ToList();
+            return values.Select(c => c.Degree.Salary)?.Sum();
         }
 
         private decimal? MonthlyPaymentOfPremises(int year, int month)
@@ -183,18 +201,7 @@ namespace Diploma.Data
 
         public decimal? MonthlyExpenses(int year, int month)
         {
-            var startDate = new DateTime(year, 1, 1).AddMonths(-1);
-            var endDate = new DateTime(year, 12, 1);
-            var promotionHistories =
-                _context.PromotionHistories.Include(ph => ph.Degree).Where(ph =>
-                    ph.StartDate > startDate || ph.EndDate < endDate || ph.EndDate == null).ToList();
-
-            var start = new DateTime(year, month, 1);
-            var end = new DateTime(year, month, DateTime.DaysInMonth(year, month));
-            var values = promotionHistories.Where(e => e.StartDate <= start).ToList();
-            values = values.Where(e =>
-                e.EndDate >= end || e.EndDate == null || e.EndDate?.Year < end.Year || e.EndDate?.Month == 11).ToList();
-            return values.Select(c => c.Degree.Salary)?.Sum();
+            return MonthlySalary(year, month) + _paymentOfPremises;
         }
 
         public decimal? MonthlyRevenue(int year, int month)

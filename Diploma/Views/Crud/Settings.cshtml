@@ -1,9 +1,9 @@
 ﻿@model Diploma.Models.ViewModels.SettingsViewModel
 @{
-    ViewData["Title"] = "Settings";
+    ViewData["Title"] = "Настройки";
 }
 
-<h1>Settings</h1>
+<h1>Настройки</h1>
 
 <hr />
 <div class="row">
@@ -11,32 +11,32 @@
         <form asp-action="Settings">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ContributionsToFunds" class="control-label"></label>
+                <label asp-for="ContributionsToFunds" class="control-label">Отчисления в фонды</label>
                 <input asp-for="ContributionsToFunds" class="form-control">
                 <span asp-validation-for="ContributionsToFunds" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IncomeTax" class="control-label"></label>
+                <label asp-for="IncomeTax" class="control-label">Налог на доход</label>
                 <input asp-for="IncomeTax" class="form-control">
                 <span asp-validation-for="IncomeTax" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PaymentOfPremises" class="control-label"></label>
+                <label asp-for="PaymentOfPremises" class="control-label">Оплата помещения</label>
                 <input asp-for="PaymentOfPremises" class="form-control">
                 <span asp-validation-for="PaymentOfPremises" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PercentageOfRental" class="control-label"></label>
+                <label asp-for="PercentageOfRental" class="control-label">Процент от аренды</label>
                 <input asp-for="PercentageOfRental" class="form-control">
                 <span asp-validation-for="PercentageOfRental" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PayrollTax" class="control-label"></label>
+                <label asp-for="PayrollTax" class="control-label">Налог с заработной платы</label>
                 <input asp-for="PayrollTax" class="form-control">
                 <span asp-validation-for="PayrollTax" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PercentageOfSales" class="control-label"></label>
+                <label asp-for="PercentageOfSales" class="control-label">Процент от продаж</label>
                 <input asp-for="PercentageOfSales" class="form-control">
                 <span asp-validation-for="PercentageOfSales" class="text-danger"></span>
             </div>

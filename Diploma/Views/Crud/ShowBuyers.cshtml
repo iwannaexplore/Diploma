@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<Diploma.Models.Buyer>
 
 @{
-    ViewData["Title"] = "ShowBuyers";
+    ViewData["Title"] = "Покупатели";
 }
 
-<h1 class="h3 mb-2 text-gray-800">All Buyers</h1>
-<p class="mb-4">If you remove a buyer - his contract ID will be set to NULL</p>
+<h1 class="h3 mb-2 text-gray-800">Все покупатели</h1>
+<p class="mb-4">Если вы удалите покупателя - контракт связанный с ним так же будет удален</p>
 
 <div class="card shadow mb-4">
     <div class="card-header d-flex justify-content-end py-3">
@@ -19,31 +19,17 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            Имя
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Surname)
+                          Фамилия
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.PassportId)
+                           Номер паспорта
                         </th>
-                        <th><span>Actions</span></th>
+                        <th><span>Действия</span></th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Surname)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.PassportId)
-                        </th>
-                        <th></th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     @foreach (var item in Model)
                     {

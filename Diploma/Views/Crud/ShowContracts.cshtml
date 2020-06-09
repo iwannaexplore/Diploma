@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Diploma.Models.Contract>
 
 @{
-    ViewData["Title"] = "ShowContracts";
+    ViewData["Title"] = "Контракты";
 }
 
-<h1 class="h3 mb-2 text-gray-800">All Contracts</h1>
+<h1 class="h3 mb-2 text-gray-800">Все контракты</h1>
 
 <div class="card shadow mb-4">
     <div class="card-header d-flex justify-content-end py-3">
@@ -18,28 +18,28 @@
                 <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Price)
+                            Цена
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.StartDate)
+                            Дата начала
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.EndDate)
+                            Дата окончания
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Seller)
+                            Продавец
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Buyer)
+                            Покупатель
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.House)
+                           Адрес дома
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Employee)
+                            Работник
                         </th>
                         <th>
-                            Type
+                            Тип
                         </th>
                         <th></th>
                     </tr>

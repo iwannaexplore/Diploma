@@ -1,24 +1,28 @@
 ﻿
+@{
+    ViewData["Title"] = "Главная";
+}
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <div>
-        <h1 class="h3 mb-0 text-gray-800 w-25">Dashboard</h1>
-        <p>Information is provided before tax deduction</p>
+        <h1 class="h3 mb-0 text-gray-800 w-25">Главная</h1>
+        <p>Информация представлена до вычета налога</p>
     </div>
     <div class="d-flex justify-content-center w-50 mr-5 pr-5">
         <input type="month" id="datePicker" class="form-control w-25 mr-5" value="2020-05" onchange="renderPartial()">
     </div>
-    <a href="" id ="monthlyReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Monthly Report</a>
-    <a href="" id="annualReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Annual Report</a>
+    <div>
+    <a href="" id="monthlyReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>Отчет за месяц</a>
+        <a href="" id="annualReport" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>Отчет за год</a>
+    </div>
 </div>
 <div class="" id="specialContainer">
-
 
 
 </div>
 @section scripts{
 
-   
+
     <script type="text/javascript">
         function renderPartial() {
             var date = new Date($('#datePicker').val());

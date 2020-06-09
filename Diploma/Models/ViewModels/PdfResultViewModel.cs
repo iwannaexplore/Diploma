@@ -7,6 +7,8 @@ namespace Diploma.Models.ViewModels
 {
     public class PdfResultViewModel
     {
+        public string Name;
+
         public string Created;
         public string Due;
 
